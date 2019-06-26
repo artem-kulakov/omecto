@@ -21,6 +21,5 @@
 //
 //= require fancybox
 //
-//=require custom-1
-//=require jquery.bxslider
-//=require custom-2
+//= require custom-1
+//= require custom-2
