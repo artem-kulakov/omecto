@@ -20,3 +20,5 @@
 //= require bootstrap-sprockets
 //
 //= require fancybox
+//
+//=require custom-1
