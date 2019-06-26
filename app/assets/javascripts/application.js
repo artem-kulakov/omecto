@@ -23,3 +23,4 @@
 //
 //=require custom-1
 //=require jquery.bxslider
+//=require custom-2
