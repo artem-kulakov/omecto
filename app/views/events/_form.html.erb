@@ -24,16 +24,18 @@
             <p class="red">Choose at least one category</p>
             <div class="icons-sec">
               <div class="row">
-                <% @categories.each do |category| %>
-                  <div class="col-sm-6 border">
-                    <div class="row">
-                      <div class="col-md-2 col-3 icon-img"><img src=<%= category.image %> alt=""></div>
-                      <div class="col-md-8 col-7"><%= category.title %></div>
-                      <div class="col-md-2 col-2">
-                        <input name="food" type="checkbox" value="">
+                <%= form.fields_for :event_categories do |ec| %>
+                  <% @categories.each do |category| %>
+                    <div class="col-sm-6 border">
+                      <div class="row">
+                        <div class="col-md-2 col-3 icon-img"><img src=<%= category.image %> alt=""></div>
+                        <div class="col-md-8 col-7"><%= category.title %></div>
+                        <div class="col-md-2 col-2">
+                          <%= ec.check_box :category_id %>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  <% end %>
                 <% end %>
               </div>
             </div>
