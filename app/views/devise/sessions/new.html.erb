@@ -1,26 +1,92 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<section class="section-join">
+  <div class="container">
+    <h3>Login!</h3>
+    <p>Not registered with us yet? <a href="signup.html" class="newlink">Sign Up!</a></p>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="row mt-5 flex-column">
+        <div class="col-md-8 offset-md-2">          
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email" %>
+          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+          <% if devise_mapping.rememberable? %>
+            <%= f.label :keep_me_signed_in do %>
+              <%= f.check_box :remember_me %>
+              Keep me signed in
+            <% end %>
+          <% end %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Login" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="login-buttons">
+      <a href="#"><img src="/images/login-fb.jpg" alt="Login with Facebook" title="Login with Facebook"></a>
+        <a href="#"><img src="/images/login-google.jpg" alt="Login with Google" title="Login with Google"></a>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>
+<div class="container">
+  <section class="ome-join row m-0">
+    <div class="col-lg-8 col-md-6 offset-lg-1">
+      <h3>Follow Omecto</h3>
+    </div>
+    <div class="col-lg-3 col-md-6 social-links"> <a href="#"><i class="fa fa-instagram"></i></a> <a href="#"><i class="fa fa-youtube"></i></a></div>
+  </section>
+</div>
+<section class="post-carousel">
+  <div class="container-fluid">
+    <h2>Want to do more of what you love?</h2>
+    <div class="slider responsive">
+      <div>
+        <div class="post-block">
+          <div class="post-c-image"><a href="#"><img src="/images/post-thub.jpg" alt=""></a></div>
+          <div class="post-c-text">
+            <h3><a href="#">Discover events</a></h3>
+            <p>See who’s hosting local events for all the
+              things you love.</p>
+            <h5><a href="#">JOIN OMECTO</a></h5>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="post-block">
+          <div class="post-c-image"><a href="#"><img src="/images/post-thub2.jpg" alt=""></a></div>
+          <div class="post-c-text">
+            <h3><a href="#">Start an Event</a></h3>
+            <p>Create your own event, and draw
+              from a community of millions.</p>
+            <h5><a href="#">start an event</a></h5>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="post-block">
+          <div class="post-c-image"><a href="#"><img src="/images/post-thub.jpg" alt=""></a></div>
+          <div class="post-c-text">
+            <h3><a href="#">Discover events</a></h3>
+            <p>See who’s hosting local events for all the
+              things you love.</p>
+            <h5><a href="#">JOIN OMECTO</a></h5>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="post-block">
+          <div class="post-c-image"><a href="#"><img src="/images/post-thub2.jpg" alt=""></a></div>
+          <div class="post-c-text">
+            <h3><a href="#">Start an Event</a></h3>
+            <p>Create your own event, and draw
+              from a community of millions.</p>
+            <h5><a href="#">start an event</a></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-follow">
+  <div class="container">
+    <h3>Follow Omecto</h3>
+    <div class="follow"> <a href="#"><img src="/images/utube.png" alt=""></a> <a href="#"><img src="/images/instagram.png" alt=""></a> </div>
+  </div>
+</section>
