@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  categories: one
+  description: MyText
+  city: MyText
+  address: MyText
+  date: 2019-06-29 17:06:44
+
+two:
+  title: MyString
+  categories: two
+  description: MyText
+  city: MyText
+  address: MyText
+  date: 2019-06-29 17:06:44

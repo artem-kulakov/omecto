@@ -29,7 +29,10 @@
         <% end %>
       </ul>
     </div>
-    <div class="group-element d-flex"><a class="btn-socials" href="events.html">events</a> <a class="btn-event" href="event-creation.html">Create an event</a>
+    <div class="group-element d-flex">
+      <a class="btn-socials" href="events.html">events</a>
+      <!-- <a class="btn-event" href="event-creation.html">Create an event</a> -->
+      <%= link_to "Create an event", new_event_path, class: "btn-event" %>
       <div class="notify">
         <ul>
           <li><a href="#"><i class="fa fa-bell-o"></i></a></li>
