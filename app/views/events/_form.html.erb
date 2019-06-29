@@ -269,15 +269,11 @@
 
             <%= form.text_field :city, placeholder: "London", class: "form-control" %>
 
-            <div class="field">
-              <%= form.label :address %>
-              <%= form.text_area :address %>
-            </div>
+            <%= form.text_field :address, placeholder: "Pick A Venue", class: "form-control" %>
 
-            <div class="field">
-              <%= form.label :date %>
-              <%= form.datetime_select :date %>
-            </div>
+            <h5>or <input name="confirm" type="checkbox" value="Yes"> I'll confirm the venue later</h5>
+
+            <%= form.datetime_select :date, placeholder: "Enter a Date", class: "form-control" %>
 
             <div class="actions">
               <%= form.submit %>
