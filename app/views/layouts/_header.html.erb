@@ -5,8 +5,23 @@
     <div class="group-sign">
       <ul class="d-flex align-items-center">
         <li><a href="price.html">upgrade now</a></li>
-        <li><a href="login.html"><i class="fa fa-user"></i> login</a></li>
-        <li><a href="signup.html"><i class="fa fa-user-plus"></i> sign up</a></li>
+        <% if user_signed_in? %>
+          <li><a href="#"><i class="fa fa-user"></i><%= "#{current_user.first_name} #{current_user.last_name}" %></a></li>
+          <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+        <% else %>
+          <li>
+            <%= link_to new_user_session_path do %>
+              <i class="fa fa-user"></i>
+              Login
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_registration_path do %>
+              <i class="fa fa-user-plus"></i>
+              Sign up
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
     <div class="group-element d-flex"><a class="btn-socials" href="events.html">events</a> <a class="btn-event" href="event-creation.html">Create an event</a>
