@@ -157,6 +157,15 @@ $(document).ready(function() {
 	$('.profile-widget li a').click(function(){
 	  $('.profile-widget li a').removeClass('active');
 	  $(this).addClass('active');
-	})
+	});
 
+    // events/new checkboxes
+    $('.category-box').change(function() {
+        var numberOfChecked = $('.category-box:checkbox:checked').length;
+
+        if(numberOfChecked > 2) {
+            alert("Up to 2 categories are allowed");
+            $(this).prop('checked', false);
+        }
+    });
 });
