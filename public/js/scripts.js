@@ -161,11 +161,21 @@ $(document).ready(function() {
 
     // events/new checkboxes
     $('.category-box').change(function() {
+        // Check if more than 2 checkboxes are checked
         var numberOfChecked = $('.category-box:checkbox:checked').length;
 
         if(numberOfChecked > 2) {
             alert("Up to 2 categories are allowed");
             $(this).prop('checked', false);
         }
+
+        // Track checked checkboxes
+        var categories = [];
+
+        $('.category-box:checkbox:checked').each(function( index ) {
+            categories.push($(this).attr('category_id'));
+        });
+
+        alert(categories.join());
     });
 });

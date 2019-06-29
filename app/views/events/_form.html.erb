@@ -24,13 +24,13 @@
             <p class="red">Choose at least one category</p>
             <div class="icons-sec">
               <div class="row">
-                <% @categories.each do |category| %>
+                <% @categories.each_with_index do |category, i| %>
                   <div class="col-sm-6 border">
                     <div class="row">
                       <div class="col-md-2 col-3 icon-img"><img src=<%= category[:image] %> alt=""></div>
                       <div class="col-md-8 col-7"><%= category[:title] %></div>
                       <div class="col-md-2 col-2">
-                        <%= form.check_box :foo, class: "category-box" %>
+                        <%= form.check_box :foo, class: "category-box", category_id: i %>
                       </div>
                     </div>
                   </div>
