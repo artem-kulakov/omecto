@@ -2,7 +2,6 @@
 
 one:
   title: MyString
-  categories: one
   description: MyText
   city: MyText
   address: MyText
@@ -10,7 +9,6 @@ one:
 
 two:
   title: MyString
-  categories: two
   description: MyText
   city: MyText
   address: MyText
