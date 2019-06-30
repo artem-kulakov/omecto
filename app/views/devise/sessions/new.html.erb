@@ -1,7 +1,7 @@
 <section class="section-join">
   <div class="container">
     <h3>Login!</h3>
-    <p>Not registered with us yet? <a href="signup.html" class="newlink">Sign Up!</a></p>
+    <p>Not registered with us yet? <%= link_to('Sign Up!', new_user_registration_path, class: :newlink) %></p>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="row mt-5 flex-column">
         <div class="col-md-8 offset-md-2">          
