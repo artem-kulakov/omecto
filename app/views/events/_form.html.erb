@@ -38,6 +38,8 @@
               </div>
             </div>
 
+            <%= form.text_field :categories, type: :hidden, class: :categories %>
+
             <%= form.text_area :description, class: "form-control", placeholder: "Tell us more about your social" %>
 
             <%= form.text_field :city, placeholder: "London", class: "form-control" %>

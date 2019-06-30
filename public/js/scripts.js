@@ -176,6 +176,8 @@ $(document).ready(function() {
             categories.push($(this).attr('category_id'));
         });
 
-        alert(categories.join());
+        $('.categories').attr('value', categories.join());
+
+        alert($('.categories').attr('value'));
     });
 });
