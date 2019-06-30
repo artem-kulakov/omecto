@@ -32,7 +32,7 @@
         <h3><a href="#">sort by best match</a></h3>
       </div>
       <div class="col-md-6 text-right">
-        <h3><a href="#">explore more <img src="images/arrow1.png" alt=""></a></h3>
+        <h3><a href="#">explore more <img src="/images/arrow1.png" alt=""></a></h3>
       </div>
     </div>
     <section class="events-cate">
@@ -41,7 +41,7 @@
           <li class="col-lg-4 col-md-4 col-sm-6">
             <div class="cat-wrap">
               <a href="" data-toggle="modal" data-target="#get-offer">
-                <img src=<%= event.image %> alt="">
+                <img src=<%= event.image || '/images/city2.jpg' %> alt="">
                 <a class="zoom1" href="">
                   <img src="/images/zoom.png" alt="">
                 </a>
