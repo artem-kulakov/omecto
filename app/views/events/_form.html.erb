@@ -4,7 +4,7 @@
         <article class="event-creation">
 
           <%= form_with(model: event, local: true) do |form| %>
-            <h5>What do you want to do ?</h5>
+            <h5>What do you want to do</h5>
 
             <% if event.errors.any? %>
               <div id="error_explanation">
@@ -20,7 +20,7 @@
 
             <%= form.text_field :title, class: "form-control", placeholder: "Name your social, make it descriptive!" %>
 
-            <h5>What's your socials about ? Select up to 2 Categories.</h5>
+            <h5>What's your socials about Select up to 2 Categories.</h5>
             <p class="red">Choose at least one category</p>
             <div class="icons-sec">
               <div class="row">
@@ -39,6 +39,7 @@
             </div>
 
             <%= form.text_field :categories, type: :hidden, class: :categories %>
+            <%= form.text_field :user_id, type: :hidden, value: current_user.id %>
 
             <%= form.text_area :description, class: "form-control", placeholder: "Tell us more about your social" %>
 
