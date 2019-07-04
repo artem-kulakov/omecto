@@ -40,7 +40,7 @@
         <% @events.each do |event| %>
           <li class="col-lg-4 col-md-4 col-sm-6">
             <div class="cat-wrap">
-              <a href="" data-toggle="modal" data-target="#get-offer">
+              <a href="" data-toggle="modal" data-target="#event<%= event.id %>">
                 <img src=<%= event.image || '/images/city2.jpg' %> alt="">
                 <a class="zoom1" href="">
                   <img src="/images/zoom.png" alt="">
@@ -59,34 +59,36 @@
     </section>
   </section>
 </section>
-<div class="modal events-popup" id="get-offer" role="dialog" style="display: none;">
-  <div class="modal-dialog new-modal">
-    <div class="modal-content">
-      <div class="modal-header no-border">
-        <button type="button" class="close" data-dismiss="modal">×</button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-5"><img src="images/event1.png" alt=""></div>
-          <div class="col-md-7">
-            <h3>Events Schedule</h3>
-            <h4>sponsor club kim</h4>
-            <h5>hosted by dextor</h5>
-            <p style="color:#000;">Michael Lambert</p>
-            <p class="greytext">Lorem ipsum dolor sit amet, consectetur adipisc elit. Proin ultricies vestibulum velit.</p>
-            <p><i class="fa fa-clock-o" aria-hidden="true"></i> 7pm-11pm</p>
-            <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> 03-Jul-2019</p>
-            <p class="text-uppercase"><i class="fa fa-map-marker" aria-hidden="true"></i> Kolkata Nicco Park</p>
-            <div class="row marg-top-10">
-              <div class="col-md-6 text-center"><a href="#"><img src="images/join.jpg" alt=""></a></div>
-              <div class="col-md-6"><a href="#" class="cancel-btn">Cancel</a></div>
+<% @events.each do |event| %>
+  <div class="modal events-popup" id="event<%= event.id %>" role="dialog" style="display: none;">
+    <div class="modal-dialog new-modal">
+      <div class="modal-content">
+        <div class="modal-header no-border">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-5"><img src=<%= event.image || '/images/city2.jpg' %> alt=""></div>
+            <div class="col-md-7">
+              <!-- <h3>Events Schedule</h3>
+              <h4>sponsor club kim</h4> -->
+              <h5><%= event.title %></h5>
+              <p style="color:#000;">Michael Lambert</p>
+              <p class="greytext"><%= event.description %></p>
+              <p><i class="fa fa-clock-o" aria-hidden="true"></i><%= event.date.strftime("%H:%M") %></p>
+              <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i><%= event.date.strftime("%-d %b %Y") %></p>
+              <p class="text-uppercase"><i class="fa fa-map-marker" aria-hidden="true"></i><%= "#{event.city}, #{event.address}" %></p>
+              <div class="row marg-top-10">
+                <div class="col-md-6 text-center"><a href="#"><img src="images/join.jpg" alt=""></a></div>
+                <div class="col-md-6"><a href="#" class="cancel-btn">Cancel</a></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
 <section class="join-social-sec">
   <section class="container">
     <section class="ome-join row m-0">
