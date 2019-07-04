@@ -73,7 +73,7 @@
               <!-- <h3>Events Schedule</h3>
               <h4>sponsor club kim</h4> -->
               <h5><%= event.title %></h5>
-              <p style="color:#000;">Michael Lambert</p>
+              <p style="color:#000;"><%= "#{event.user.first_name} #{event.user.last_name}" %></p>
               <p class="greytext"><%= event.description %></p>
               <p><i class="fa fa-clock-o" aria-hidden="true"></i><%= event.date.strftime("%H:%M") %></p>
               <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i><%= event.date.strftime("%-d %b %Y") %></p>
