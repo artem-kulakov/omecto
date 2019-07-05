@@ -1,5 +1,8 @@
 <section class="section-slide">
-  <img src="/images/slider1.jpg" /><a class="btn-join" href="#">join omecto</a>
+  <img src="/images/slider1.jpg" />
+  <% unless user_signed_in? %>
+    <%= link_to 'Join omecto', new_user_registration_path, class: 'btn-join' %>
+  <% end %>
 </section>
 <div class="main-background">
   <section class="section-do">
