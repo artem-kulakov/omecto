@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :blogs
   resources :events
+
   devise_for :users
+  resources :users, :only => [:show]
+
   get 'welcome/index'
   get 'about', to: 'welcome#about'
 
