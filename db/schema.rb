@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2019_07_05_124154) do
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "cat_id"
+    t.string "cat_id"
   end
 
   create_table "events", force: :cascade do |t|

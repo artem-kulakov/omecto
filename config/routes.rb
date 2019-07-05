@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :blogs
   resources :events
-  resources :category, :only => [:show]
+  resources :categories, :only => [:show]
 
   devise_for :users
   resources :users, :only => [:show]
