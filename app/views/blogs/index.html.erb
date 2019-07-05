@@ -16,9 +16,9 @@
               <p><%= blog.body.truncate(125) %> <%= link_to "{more}", blog %></p>
               <div class="row">
                 <div class="col-md-1 col-2 grey-icon"><i class="fa fa-sticky-note" aria-hidden="true"></i></div>
-                <div class="col-md-5 col-6 commtext"><a href="#">24 comments</a></div>
+                <div class="col-md-5 col-6 commtext"><a href="#"><%= rand(50)+1 %> comments</a></div>
                 <div class="col-md-5 col-4 text-right pink-profile">
-                  <%= link_to events_path do %>
+                  <%= link_to user_path(blog.user.id) do %>
                     <i class="fa fa-user-o"></i>
                   <% end %>
                 </div>
