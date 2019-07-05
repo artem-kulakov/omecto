@@ -1,24 +1,143 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @blog.user %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @blog.body %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @blog.image %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<section class="blog-top">
+  <div class="container">
+    <h4><img class="quote-l" src="/images/quote-l.png" alt=""> Omecto is a platform for finding and building local communities. People use Omecto to
+      meet new people, learn new things, find support, get out of their comfort zones,
+      and pursue their passions, together.<img class="quote-r" src="/images/quote-r.png" alt=""> </h4>
+  </div>
+</section>
+<section class="blog-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 blog-details"> <img src=<%= @blog.image %> alt="">
+        <div class="blog-det-row">
+          <div class="date-cell"> <span class="blog-date"> <i class="fa fa-calendar-o"></i> <strong><%= @blog.created_at.strftime("%-d") %></strong><%= @blog.created_at.strftime("%b %Y") %></span> </div>
+          <div class="block-title">
+            <h2><%= @blog.title %></h2>
+            <h4><span class="posted">POSTED AT</span> <%= @blog.created_at.strftime("%H:%M") %> IN BLOG, <span class="likes">0 LIKES</span> <span class="share-on"> <img src="/images/share.png" alt=""></span></h4>
+          </div>
+        </div>
+        <p><%= @blog.body %></p>
+        <h5><%= link_to 'Go To omecto.com', root_path %></h5>
+        <div class="comments">
+          <h4>Related Tags:</h4>
+          <!-- <img src="/images/comment.png" alt=""> -->
+        </div>
+      </div>
+      <div class="col-lg-4 sidebar">
+        <div class="search-box">
+          <form action="#" method="post">
+            <input type="text" placeholder="search here...">
+            <input type="submit" value="">
+          </form>
+        </div>
+        <h3>Read Related Posts</h3>
+        <div class="widget-post"> <a href="#"><img src="/images/blog-2.png" alt="">
+          <h4>Most Popular On Omecto London</h4>
+          <p>Ever wondered who has the most friends on Omecto? How about who has been to the most socials? And where…</p>
+          </a> </div>
+        <div class="widget-post"> <a href="#"><img src="/images/blog-3.jpg" alt="">
+          <h4>6 Reasons Why Omecto Will Save your
+            (Social) Life</h4>
+          <p>So you joined Omecto after moving to a new city, you made some new friends and you guys are tight. And you…</p>
+          </a> </div>
+        <div class="widget-post"> <a href="#"><img src="/images/blog-4.jpg" alt="">
+          <h4>5 Reasons Omecto is Great for Meeting
+            New People</h4>
+          <p>Sometimes it can be hard to meet new people because you don't know where to go! Hanging out in a…</p>
+          </a> </div>
+        <h3>Categories</h3>
+        <ul>
+          <li><a href="#">Food & Drinks</a></li>
+          <li><a href="#">Night Life</a></li>
+          <li><a href="#">Outdoors & Adventure</a></li>
+          <li><a href="#">Tech</a></li>
+          <li><a href="#">Self Improvement</a></li>
+          <li><a href="#">Sports</a></li>
+          <li><a href="#">Learning</a></li>
+          <li><a href="#">Travel</a></li>
+          <li><a href="#">Music & Dance</a></li>
+          <li><a href="#">Single's Only</a></li>
+          <li><a href="#">Family</a></li>
+          <li><a href="#">Health & Wellness</a></li>
+          <li><a href="#">Hobbies & Crafts</a></li>
+          <li><a href="#">Fashion & Beauty</a></li>
+          <li><a href="#">Film</a></li>
+          <li><a href="#">Beliefs</a></li>
+          <li><a href="#">LGBTQ</a></li>
+          <li><a href="#">Language & Culture</a></li>
+          <li><a href="#">Photography</a></li>
+          <li><a href="#">Book Club</a></li>
+          <li><a href="#">Pets</a></li>
+          <li><a href="#">Arts</a></li>
+          <li><a href="#">Seminar & Talks</a></li>
+          <li><a href="#">Freelance Community</a></li>
+        </ul>
+      </div>
+    </div>
+    <section class="ome-join row m-0">
+      <div class="col-lg-8 col-md-6 offset-lg-1">
+        <h3>Find and Join Social</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          Aenean euismod bibendum laoreet.</p>
+      </div>
+      <div class="col-lg-3 col-md-6 social-links"> <a href="#"><i class="fa fa-instagram"></i></a> <a href="#"><i class="fa fa-youtube"></i></a></div>
+    </section>
+  </div>
+</section>
+<section class="post-carousel">
+  <div class="container-fluid">
+    <h2>Want to do more of what you love?</h2>
+    <div class="slider responsive">
+      <div>
+        <div class="post-block">
+          <div class="post-c-image"><a href="#"><img src="/images/post-thub.jpg" alt=""></a></div>
+          <div class="post-c-text">
+            <h3><a href="#">Discover events</a></h3>
+            <p>See who’s hosting local events for all the
+              things you love.</p>
+            <h5><a href="#">JOIN OMECTO</a></h5>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="post-block">
+          <div class="post-c-image"><a href="#"><img src="/images/post-thub2.jpg" alt=""></a></div>
+          <div class="post-c-text">
+            <h3><a href="#">Start an Event</a></h3>
+            <p>Create your own event, and draw
+              from a community of millions.</p>
+            <h5><a href="#">start an event</a></h5>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="post-block">
+          <div class="post-c-image"><a href="#"><img src="/images/post-thub.jpg" alt=""></a></div>
+          <div class="post-c-text">
+            <h3><a href="#">Discover events</a></h3>
+            <p>See who’s hosting local events for all the
+              things you love.</p>
+            <h5><a href="#">JOIN OMECTO</a></h5>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="post-block">
+          <div class="post-c-image"><a href="#"><img src="/images/post-thub2.jpg" alt=""></a></div>
+          <div class="post-c-text">
+            <h3><a href="#">Start an Event</a></h3>
+            <p>Create your own event, and draw
+              from a community of millions.</p>
+            <h5><a href="#">start an event</a></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section-follow">
+  <div class="container">
+    <h3>Follow Omecto</h3>
+    <div class="follow"><a href="#"><img src="/images/utube.png" alt=""></a> <a href="#"><img src="/images/instagram.png" alt=""></a></div>
+  </div>
+</section>
