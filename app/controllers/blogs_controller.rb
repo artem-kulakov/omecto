@@ -11,6 +11,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @blogs = Blog.all.sample(3)
   end
 
   # GET /blogs/new

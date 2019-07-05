@@ -24,27 +24,22 @@
         </div>
       </div>
       <div class="col-lg-4 sidebar">
-        <div class="search-box">
+<!--         <div class="search-box">
           <form action="#" method="post">
             <input type="text" placeholder="search here...">
             <input type="submit" value="">
           </form>
-        </div>
+        </div> -->
         <h3>Read Related Posts</h3>
-        <div class="widget-post"> <a href="#"><img src="/images/blog-2.png" alt="">
-          <h4>Most Popular On Omecto London</h4>
-          <p>Ever wondered who has the most friends on Omecto? How about who has been to the most socials? And where…</p>
-          </a> </div>
-        <div class="widget-post"> <a href="#"><img src="/images/blog-3.jpg" alt="">
-          <h4>6 Reasons Why Omecto Will Save your
-            (Social) Life</h4>
-          <p>So you joined Omecto after moving to a new city, you made some new friends and you guys are tight. And you…</p>
-          </a> </div>
-        <div class="widget-post"> <a href="#"><img src="/images/blog-4.jpg" alt="">
-          <h4>5 Reasons Omecto is Great for Meeting
-            New People</h4>
-          <p>Sometimes it can be hard to meet new people because you don't know where to go! Hanging out in a…</p>
-          </a> </div>
+        <% @blogs.each do |blog| %>
+          <div class="widget-post">
+            <%= link_to @blog do %>
+              <img src=<%= blog.image %> alt="">
+              <h4><%= blog.title %></h4>
+              <p><%= blog.body.truncate(100) %></p>
+            <% end %>
+          </div>
+        <% end %>
         <h3>Categories</h3>
         <ul>
           <li><a href="#">Food & Drinks</a></li>
