@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :events
   resources :categories, :only => [:show]
 
+  resources :conversations do
+    resources :messages
+  end
+
   devise_for :users
   resources :users, :only => [:show]
 
