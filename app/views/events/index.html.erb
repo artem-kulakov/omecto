@@ -41,7 +41,11 @@
           <li class="col-lg-4 col-md-4 col-sm-6">
             <div class="cat-wrap">
               <a href="" data-toggle="modal" data-target="#event<%= event.id %>">
-                <img src=<%= event.image || '/images/city2.jpg' %> alt="">
+                <% if event.image.attached? %>
+                  <img src=<%= url_for(event.image) %> alt="">
+                <% else %>
+                  <img src='/images/city26.jpg' alt="">
+                <% end %>
                 <a class="zoom1" href="">
                   <img src="/images/zoom.png" alt="">
                 </a>

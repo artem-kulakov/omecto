@@ -47,6 +47,8 @@
 
             <%= form.text_field :address, placeholder: "Pick A Venue", class: "form-control" %>
 
+            <%= form.file_field :image, class: "form-control" %>
+
             <h5>or <input name="confirm" type="checkbox" value="Yes"> I'll confirm the venue later</h5>
 
             <%= form.datetime_select :date, placeholder: "Enter a Date", class: "form-control" %>
