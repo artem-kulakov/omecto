@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_08_184718) do
+ActiveRecord::Schema.define(version: 2019_07_08_202240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,12 +72,13 @@ ActiveRecord::Schema.define(version: 2019_07_08_184718) do
     t.string "title"
     t.string "categories"
     t.text "description"
-    t.string "city"
     t.string "address"
     t.datetime "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "location_id"
+    t.index ["location_id"], name: "index_events_on_location_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
@@ -125,6 +126,7 @@ ActiveRecord::Schema.define(version: 2019_07_08_184718) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "blogs", "users"
+  add_foreign_key "events", "locations"
   add_foreign_key "events", "users"
   add_foreign_key "participations", "events"
   add_foreign_key "participations", "users"

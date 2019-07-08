@@ -8,14 +8,14 @@
 
 description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
-# Event.create([
-# 	{ title: 'Birthday', description: description, city: 'Moscow', address: 'Red Square', date: '2019-06-30 07:10:00', categories: 'a,b', user_id: 1 },
-# 	{ title: 'PHP Beer', description: description, city: 'London', address: 'Trafalgar Square', date: '2019-06-30 07:10:00', categories: 'b,c', user_id: 1 },
-# 	{ title: 'Soccer', description: description, city: 'Berlin', address: 'Alexander Platz', date: '2019-06-30 07:10:00', categories: 'c,d', user_id: 1 },
-# 	{ title: 'Financial modelling', description: description, city: 'Palo Alto', address: 'Lenin Street', date: '2019-06-30 07:10:00', categories: 'd,e', user_id: 1 },
-# 	{ title: 'Rails Party', description: description, city: 'Madrid', address: 'Some Street', date: '2019-06-30 07:10:00', categories: 'e,f', user_id: 1 },
-# 	{ title: 'History Club', description: description, city: 'Berlin', address: 'Alexander Platz', date: '2019-06-30 07:10:00', categories: 'f,g', user_id: 1 },
-# ])
+Event.create([
+	{ title: 'Birthday', description: description, address: 'Red Square', date: '2019-06-30 07:10:00', categories: 'a,b', user_id: 1, locaiton_id: 1 },
+	{ title: 'PHP Beer', description: description, address: 'Trafalgar Square', date: '2019-06-30 07:10:00', categories: 'b,c', user_id: 2, locaiton_id: 2 },
+	{ title: 'Soccer', description: description, address: 'Alexander Platz', date: '2019-06-30 07:10:00', categories: 'c,d', user_id: 3, locaiton_id: 3 },
+	{ title: 'Financial modelling', description: description, address: 'Lenin Street', date: '2019-06-30 07:10:00', categories: 'd,e', user_id: 4, locaiton_id: 4 },
+	{ title: 'Rails Party', description: description, address: 'Some Street', date: '2019-06-30 07:10:00', categories: 'e,f', user_id: 5, locaiton_id: 5 },
+	{ title: 'History Club', description: description, address: 'Alexander Platz', date: '2019-06-30 07:10:00', categories: 'f,g', user_id: 6, locaiton_id: 6 },
+])
 
 
 
@@ -69,9 +69,9 @@ body = 'Lorem ipsum dolor sit amet, sit mauris arcu neque ut, orci scelerisque i
 
 
 
-Location.create([
-  # { city: 'Мытищи' },
-  { city: 'Истра, Московская область' },
-  # { city: 'Владивосток' },
-  # { city: 'Вильнюс' },
-])
+# Location.create([
+#   { city: 'Мытищи' },
+#   { city: 'Истра, Московская область' },
+#   { city: 'Владивосток' },
+#   { city: 'Вильнюс' },
+# ])

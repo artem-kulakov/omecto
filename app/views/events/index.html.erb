@@ -87,7 +87,7 @@
               <p class="greytext"><%= event.description %></p>
               <p><i class="fa fa-clock-o" aria-hidden="true"></i><%= event.date.strftime("%H:%M") %></p>
               <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i><%= event.date.strftime("%-d %b %Y") %></p>
-              <p class="text-uppercase"><i class="fa fa-map-marker" aria-hidden="true"></i><%= "#{event.city}, #{event.address}" %></p>
+              <p class="text-uppercase"><i class="fa fa-map-marker" aria-hidden="true"></i><%= "#{event.location.city}, #{event.address}" %></p>
               <% if @participations.where(user_id: current_user.id, event_id: event.id).any? %>
                 <p>You already joined this event</p>
               <% elsif current_user.id != event.user.id %>

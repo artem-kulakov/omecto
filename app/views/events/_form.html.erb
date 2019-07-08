@@ -43,7 +43,9 @@
 
             <%= form.text_area :description, class: "form-control", placeholder: "Tell us more about your social" %>
 
-            <%= form.text_field :city, placeholder: "City", class: "form-control", id: 'searchTextField' %>
+            <%= form.fields_for :location do |location_form| %>
+              <%= location_form.text_field :city, placeholder: "City", class: "form-control", id: 'searchTextField' %>
+            <% end %>
 
             <%= form.text_field :address, placeholder: "Pick A Venue", class: "form-control" %>
 
