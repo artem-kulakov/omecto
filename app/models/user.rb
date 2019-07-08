@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	has_many :events
+  has_many :events, through: :participations
 	has_many :blogs
 
   # Include default devise modules. Others available are:

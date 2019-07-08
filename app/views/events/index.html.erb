@@ -53,7 +53,7 @@
                   <a href="" data-toggle="modal" data-target="#event<%= event.id %>">
                     <%= event.title %>
                   </a>
-                  <%= rand(1000)+1 %> members
+                  <%= event.users.length + 1 %> members
                 </div>
               </a>
             </div>
@@ -88,12 +88,20 @@
               <p><i class="fa fa-clock-o" aria-hidden="true"></i><%= event.date.strftime("%H:%M") %></p>
               <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i><%= event.date.strftime("%-d %b %Y") %></p>
               <p class="text-uppercase"><i class="fa fa-map-marker" aria-hidden="true"></i><%= "#{event.city}, #{event.address}" %></p>
-              <div class="row marg-top-10">
-                <div class="col-md-6 text-center"><a href="#"><img src="/images/join.jpg" alt=""></a></div>
-                <div class="col-md-6">
-                  <a href="javascript: void(0)" class="cancel-btn" data-dismiss="modal">Cancel</a>
+              <% if @participations.where(user_id: current_user.id, event_id: event.id).any? %>
+                <p>You already joined this event</p>
+              <% elsif current_user.id != event.user.id %>
+                <div class="row marg-top-10">
+                  <div class="col-md-6 text-center">
+                      <%= link_to new_participation_path(user_id: current_user.id, event_id: event.id) do %>
+                        <img src="/images/join.jpg" alt="">
+                      <% end %>
+                  </div>
+                  <div class="col-md-6">
+                    <a href="javascript: void(0)" class="cancel-btn" data-dismiss="modal">Cancel</a>
+                  </div>
                 </div>
-              </div>
+              <% end %>
             </div>
           </div>
         </div>
