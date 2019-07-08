@@ -50,7 +50,7 @@
                   <img src="/images/zoom.png" alt="">
                 </a>
                 <div class="hover1">
-                  <a href="#">
+                  <a href="" data-toggle="modal" data-target="#event<%= event.id %>">
                     <%= event.title %>
                   </a>
                   <%= rand(1000)+1 %> members
@@ -72,7 +72,13 @@
         </div>
         <div class="modal-body">
           <div class="row">
-            <div class="col-md-5"><img src=<%= event.image || '/images/city2.jpg' %> alt=""></div>
+            <div class="col-md-5">
+              <% if event.image.attached? %>
+                <img src=<%= url_for(event.image) %> alt="">
+              <% else %>
+                <img src='/images/city26.jpg' alt="">
+              <% end %>
+            </div>
             <div class="col-md-7">
               <!-- <h3>Events Schedule</h3>
               <h4>sponsor club kim</h4> -->
