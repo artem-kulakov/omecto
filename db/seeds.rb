@@ -8,14 +8,14 @@
 
 description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
 
-Event.create([
-	{ title: 'Birthday', description: description, city: 'Moscow', address: 'Red Square', date: '2019-06-30 07:10:00', categories: 'a,b', user_id: 1 },
-	{ title: 'PHP Beer', description: description, city: 'London', address: 'Trafalgar Square', date: '2019-06-30 07:10:00', categories: 'b,c', user_id: 1 },
-	{ title: 'Soccer', description: description, city: 'Berlin', address: 'Alexander Platz', date: '2019-06-30 07:10:00', categories: 'c,d', user_id: 1 },
-	{ title: 'Financial modelling', description: description, city: 'Palo Alto', address: 'Lenin Street', date: '2019-06-30 07:10:00', categories: 'd,e', user_id: 1 },
-	{ title: 'Rails Party', description: description, city: 'Madrid', address: 'Some Street', date: '2019-06-30 07:10:00', categories: 'e,f', user_id: 1 },
-	{ title: 'History Club', description: description, city: 'Berlin', address: 'Alexander Platz', date: '2019-06-30 07:10:00', categories: 'f,g', user_id: 1 },
-])
+# Event.create([
+# 	{ title: 'Birthday', description: description, city: 'Moscow', address: 'Red Square', date: '2019-06-30 07:10:00', categories: 'a,b', user_id: 1 },
+# 	{ title: 'PHP Beer', description: description, city: 'London', address: 'Trafalgar Square', date: '2019-06-30 07:10:00', categories: 'b,c', user_id: 1 },
+# 	{ title: 'Soccer', description: description, city: 'Berlin', address: 'Alexander Platz', date: '2019-06-30 07:10:00', categories: 'c,d', user_id: 1 },
+# 	{ title: 'Financial modelling', description: description, city: 'Palo Alto', address: 'Lenin Street', date: '2019-06-30 07:10:00', categories: 'd,e', user_id: 1 },
+# 	{ title: 'Rails Party', description: description, city: 'Madrid', address: 'Some Street', date: '2019-06-30 07:10:00', categories: 'e,f', user_id: 1 },
+# 	{ title: 'History Club', description: description, city: 'Berlin', address: 'Alexander Platz', date: '2019-06-30 07:10:00', categories: 'f,g', user_id: 1 },
+# ])
 
 
 
@@ -61,8 +61,17 @@ body = 'Lorem ipsum dolor sit amet, sit mauris arcu neque ut, orci scelerisque i
 
 
 
-User.create(first_name: 'Holly', last_name: 'Christmas', email: "holly@gmail.com", password: "abc123", password_confirmation: "abc123")
-User.create(first_name: 'Rachel', last_name: 'Green', email: "iliketoshop@gmail.com", password: "abc123", password_confirmation: "abc123")
-User.create(first_name: 'Ross', last_name: 'Gellar', email: "ross123@hotmail.com", password: "abc123", password_confirmation: "abc123")
-User.create(first_name: 'Charlie', last_name: 'Brown', email: "charlie@gmail.com", password: "abc123", password_confirmation: "abc123")
-User.create(first_name: 'Lucy', last_name: 'van Pelt', email: "bluedresses4va@gmail.com", password: "abc123", password_confirmation: "abc123")
+# User.create(first_name: 'Holly', last_name: 'Christmas', email: "holly@gmail.com", password: "abc123", password_confirmation: "abc123")
+# User.create(first_name: 'Rachel', last_name: 'Green', email: "iliketoshop@gmail.com", password: "abc123", password_confirmation: "abc123")
+# User.create(first_name: 'Ross', last_name: 'Gellar', email: "ross123@hotmail.com", password: "abc123", password_confirmation: "abc123")
+# User.create(first_name: 'Charlie', last_name: 'Brown', email: "charlie@gmail.com", password: "abc123", password_confirmation: "abc123")
+# User.create(first_name: 'Lucy', last_name: 'van Pelt', email: "bluedresses4va@gmail.com", password: "abc123", password_confirmation: "abc123")
+
+
+
+Location.create([
+  # { city: 'Мытищи' },
+  { city: 'Истра, Московская область' },
+  # { city: 'Владивосток' },
+  # { city: 'Вильнюс' },
+])
