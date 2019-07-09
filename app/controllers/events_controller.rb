@@ -15,14 +15,13 @@ class EventsController < ApplicationController
     @city = params[:city]
 
     location_ids = []
-    Location.near(@city, @distance).each do |location|
+    Location.near(@city, @distance, units: :km).each do |location|
       location_ids << location.id
     end
 
     temp = Event.where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{@word.downcase}%", "%#{@word.downcase}%")
-    @selected_events = temp.where(location_id: location_ids).length
+    @events = temp.where(location_id: location_ids)
 
-    @events = Event.all
     @participations = Participation.all
 
     render :index
