@@ -69,9 +69,11 @@ body = 'Lorem ipsum dolor sit amet, sit mauris arcu neque ut, orci scelerisque i
 
 
 
-# Location.create([
-#   { city: 'Мытищи' },
-#   { city: 'Истра, Московская область' },
-#   { city: 'Владивосток' },
-#   { city: 'Вильнюс' },
-# ])
+Location.create([
+  { city: 'Москва' },
+  { city: 'Серпухов' },
+  { city: 'Мытищи' },
+  { city: 'Истра, Московская область' },
+  { city: 'Владивосток' },
+  { city: 'Вильнюс' },
+])
