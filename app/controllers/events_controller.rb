@@ -8,6 +8,12 @@ class EventsController < ApplicationController
     if params['distance'].nil?
       @events = Event.all
       @participations = Participation.all
+
+      ip = request.remote_ip
+      ip = "83.220.236.196" if ip == "::1"
+      location = Geocoder.search(ip).first
+
+      @city = location.city + ', ' + location.country
     else
       @word = params[:word]
       @distance = params[:distance]
