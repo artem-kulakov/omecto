@@ -5,26 +5,24 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
-    @participations = Participation.all
-  end
+    if params['distance'].nil?
+      @events = Event.all
+      @participations = Participation.all
+    else
+      @word = params[:word]
+      @distance = params[:distance]
+      @city = params[:city]
 
-  def search
-    @word = params[:word]
-    @distance = params[:distance]
-    @city = params[:city]
+      location_ids = []
+      Location.near(@city, @distance, units: :km).each do |location|
+        location_ids << location.id
+      end
 
-    location_ids = []
-    Location.near(@city, @distance, units: :km).each do |location|
-      location_ids << location.id
+      temp = Event.where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{@word.downcase}%", "%#{@word.downcase}%")
+      @events = temp.where(location_id: location_ids)
+
+      @participations = Participation.all
     end
-
-    temp = Event.where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{@word.downcase}%", "%#{@word.downcase}%")
-    @events = temp.where(location_id: location_ids)
-
-    @participations = Participation.all
-
-    render :index
   end
 
   # GET /events/1

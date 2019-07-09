@@ -9,7 +9,7 @@
     <section class="search-sec1">
       <div class="row text-left">
         <div class="col">
-          <%= form_tag "/search", method: :get do %>
+          <%= form_tag "/events", method: :get do %>
             <div class="row">
               <div class="col-md-4">
                 <div class="search-div">
@@ -26,8 +26,6 @@
             </div>
           <% end %>
         </div>
-
-
       </div>
     </section>
   </section>
@@ -37,7 +35,6 @@
     <div class="row">
       <div class="col-md-6">
         <h3><a href="#">sort by best match</a></h3>
-        <%= @selected_events %>
       </div>
       <div class="col-md-6 text-right">
         <h3><a href="#">explore more <img src="/images/arrow1.png" alt=""></a></h3>

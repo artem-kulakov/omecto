@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :blogs
   resources :events
-  get 'search', to: 'events#search'
   resources :categories, :only => [:show]
   resources :participations, :only => [:new]
 
