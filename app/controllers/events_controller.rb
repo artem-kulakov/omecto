@@ -23,6 +23,16 @@ class EventsController < ApplicationController
 
       @participations = Participation.all
     end
+
+    @distances = {
+      '5 КМ' => 5,
+      '10 КМ' => 10,
+      '25 КМ' => 25,
+      '50 КМ' => 50,
+      '100 КМ' => 100,
+      '150 КМ' => 150,
+      'БОЛЕЕ 150 КМ' => 20000
+    }
   end
 
   # GET /events/1
