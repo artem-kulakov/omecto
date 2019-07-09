@@ -7,7 +7,7 @@
 <section class="container">
   <section class="search-sec">
     <section class="search-sec1">
-      <div class="row">
+      <div class="row text-left">
         <div class="col-md-4">
           <div class="search-div">
             <form name="searchform" method="post" action="#">
@@ -16,7 +16,12 @@
             </form>
           </div>
         </div>
-        <div class="col-md-4 search-text">within 50 miles of Kolkata</div>
+        <div class="col-md-8 search-text text-left">
+          в радиусе &nbsp;
+          <input name="search" type="text" size="5">
+          &nbsp; км от &nbsp;
+          <input name="search" type="text">
+        </div>
       </div>
     </section>
   </section>
