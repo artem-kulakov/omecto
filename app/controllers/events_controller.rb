@@ -5,19 +5,24 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    if params['distance'].nil?
-      @events = Event.all
-      @participations = Participation.all
-
       ip = request.remote_ip
       ip = "83.220.236.196" if ip == "::1"
       location = Geocoder.search(ip).first
+      city = location.city + ', ' + location.country
 
-      @city = location.city + ', ' + location.country
+    if params['distance'].nil?
+      @events = Event.all
+      @participations = Participation.all
+      @city = city
     else
       @word = params[:word]
       @distance = params[:distance]
-      @city = params[:city]
+
+      if params[:city] == ""
+        @city = city
+      else
+        @city = params[:city]
+      end
 
       location_ids = []
       Location.near(@city, @distance, units: :km).each do |location|
@@ -39,6 +44,8 @@ class EventsController < ApplicationController
       '150 КМ' => 150,
       'БОЛЕЕ 150 КМ' => 20000
     }
+
+    @foo = params
   end
 
   # GET /events/1
