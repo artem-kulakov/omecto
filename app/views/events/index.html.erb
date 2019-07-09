@@ -21,7 +21,7 @@
                 в радиусе &nbsp;
                 <%= select_tag :distance, options_for_select(@distances, @distance || 50) %>
                 &nbsp; от &nbsp;
-                <%= text_field_tag :city, @city, placeholder: :город %>
+                <%= text_field_tag :city, @city, placeholder: :город, id: 'searchTextField' %>
               </div>
             </div>
           <% end %>
@@ -196,3 +196,16 @@
     <div class="follow"><a href="#"><img src="/images/utube.png" alt=""></a> <a href="#"><img src="/images/instagram.png" alt=""></a> </div>
   </div>
 </section>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB70MmakmCuRJl08Njf9z0Itv-nYf-DOPY&libraries=places"></script>
+<script>
+  function initialize() {
+    var options = {
+      types: ['(cities)'],
+    };
+
+    var input = document.getElementById('searchTextField');
+    var autocomplete = new google.maps.places.Autocomplete(input, options);
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
