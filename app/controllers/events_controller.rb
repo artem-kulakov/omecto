@@ -9,6 +9,25 @@ class EventsController < ApplicationController
     @participations = Participation.all
   end
 
+  def search
+    word = params[:word]
+    distance = params[:distance]
+    city = params[:city]
+
+    boo = []
+    Location.near(city, distance).each do |location|
+      boo << location.id
+    end
+
+    @zoo = Event.where("lower(title) LIKE ?", "%#{word.downcase}%")
+    @foo = @zoo.where(location_id: boo).length
+
+    @events = Event.all
+    @participations = Participation.all
+
+    render :index
+  end
+
   # GET /events/1
   # GET /events/1.json
   def show

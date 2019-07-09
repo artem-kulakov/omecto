@@ -22,6 +22,14 @@
           &nbsp; км от &nbsp;
           <input name="search" type="text">
         </div>
+        <div class="col-md-12">
+          <%= form_tag("/events/search") do %>
+            <%= text_field_tag :word, nil, placeholder: :word %>
+            <%= text_field_tag :distance, nil, placeholder: :distance %>
+            <%= text_field_tag :city, nil, placeholder: :city %>
+            <%= submit_tag("Search") %>
+          <% end %>
+        </div>
       </div>
     </section>
   </section>
@@ -31,6 +39,7 @@
     <div class="row">
       <div class="col-md-6">
         <h3><a href="#">sort by best match</a></h3>
+        <%= @foo %>
       </div>
       <div class="col-md-6 text-right">
         <h3><a href="#">explore more <img src="/images/arrow1.png" alt=""></a></h3>
