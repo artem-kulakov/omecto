@@ -19,7 +19,7 @@ class EventsController < ApplicationController
       boo << location.id
     end
 
-    @zoo = Event.where("lower(title) LIKE ?", "%#{word.downcase}%")
+    @zoo = Event.where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{word.downcase}%", "%#{word.downcase}%")
     @foo = @zoo.where(location_id: boo).length
 
     @events = Event.all
