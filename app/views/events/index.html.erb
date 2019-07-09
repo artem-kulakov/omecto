@@ -9,23 +9,19 @@
     <section class="search-sec1">
       <div class="row text-left">
         <div class="col">
-          <%= form_tag("/events/search") do %>
+          <%= form_tag "/search", method: :get do %>
             <div class="row">
               <div class="col-md-4">
                 <div class="search-div">
-                  <!-- <input name="search" type="text" placeholder="search" required> -->
-                  <%= text_field_tag :word, nil, placeholder: :search %>
-                  <!-- <input name="submit" type="submit" value=""> -->
+                  <%= text_field_tag :word, @word, placeholder: :search %>
                   <%= submit_tag("") %>
                 </div>
               </div>
               <div class="col-md-8 search-text text-left">
                 в радиусе &nbsp;
-                <!-- <input name="search" type="text" size="5"> -->
-                <%= text_field_tag :distance, nil, size: 5 %>
+                <%= text_field_tag :distance, @distance, size: 5 %>
                 &nbsp; км от &nbsp;
-                <!-- <input name="search" type="text"> -->
-                <%= text_field_tag :city, nil, placeholder: :город %>
+                <%= text_field_tag :city, @city, placeholder: :город %>
               </div>
             </div>
           <% end %>
