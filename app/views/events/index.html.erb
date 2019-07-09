@@ -8,28 +8,30 @@
   <section class="search-sec">
     <section class="search-sec1">
       <div class="row text-left">
-        <div class="col-md-4">
-          <div class="search-div">
-            <form name="searchform" method="post" action="#">
-              <input name="search" type="text" placeholder="search" required>
-              <input name="submit" type="submit" value="">
-            </form>
-          </div>
-        </div>
-        <div class="col-md-8 search-text text-left">
-          в радиусе &nbsp;
-          <input name="search" type="text" size="5">
-          &nbsp; км от &nbsp;
-          <input name="search" type="text">
-        </div>
-        <div class="col-md-12">
+        <div class="col">
           <%= form_tag("/events/search") do %>
-            <%= text_field_tag :word, nil, placeholder: :word %>
-            <%= text_field_tag :distance, nil, placeholder: :distance %>
-            <%= text_field_tag :city, nil, placeholder: :city %>
-            <%= submit_tag("Search") %>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="search-div">
+                  <!-- <input name="search" type="text" placeholder="search" required> -->
+                  <%= text_field_tag :word, nil, placeholder: :search %>
+                  <!-- <input name="submit" type="submit" value=""> -->
+                  <%= submit_tag("") %>
+                </div>
+              </div>
+              <div class="col-md-8 search-text text-left">
+                в радиусе &nbsp;
+                <!-- <input name="search" type="text" size="5"> -->
+                <%= text_field_tag :distance, nil, size: 5 %>
+                &nbsp; км от &nbsp;
+                <!-- <input name="search" type="text"> -->
+                <%= text_field_tag :city, nil, placeholder: :город %>
+              </div>
+            </div>
           <% end %>
         </div>
+
+
       </div>
     </section>
   </section>
