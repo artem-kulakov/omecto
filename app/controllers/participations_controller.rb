@@ -3,11 +3,11 @@ class ParticipationsController < ApplicationController
 
   def new
     @participation = Participation.new(participation_params)
+    @event_id = participation_params[:event_id]
 
     respond_to do |format|
       if @participation.save
-        format.html { redirect_to events_path, notice: 'Participation was successfully created.' }
-        format.json { render :show, status: :created, location: @participation }
+        format.js { render 'participations/join_event' }
       end
     end
   end
