@@ -260,6 +260,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb3a5d', end
 .search-text{text-align:center; line-height:46px; text-transform:uppercase; font-size:18px;}
 a.groups-btn{background:#40a2c7; display:inline-block; color:#fff; text-transform:uppercase; font-size:18px; text-align:center; line-height:46px; width:100%;}
 a.groups-btn:hover{background:#ee3b5f;}
+input.groups-btn{background:#40a2c7; display:inline-block; color:#fff; text-transform:uppercase; font-size:18px; text-align:center; line-height:46px; width:100%; border: none;}
+input.groups-btn:hover{background:#ee3b5f; cursor: pointer;}
+input.groups-btn:active{background:gray; cursor: pointer;}
 a.calendar-btn{background:#ee3b5f; display:inline-block; color:#fff; text-transform:uppercase; font-size:18px; text-align:center; line-height:46px; width:100%;}
 a.calendar-btn:hover{background:#40a2c7;}
 .padd-0{padding:0px; margin:0px; float:left;}

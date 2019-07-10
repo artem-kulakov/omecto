@@ -11,17 +11,20 @@
         <div class="col">
           <%= form_tag "/events", method: :get, remote: true do %>
             <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="search-div">
                   <%= text_field_tag :word, @word, placeholder: :search %>
                   <%= submit_tag("") %>
                 </div>
               </div>
-              <div class="col-md-8 search-text text-left">
+              <div class="col-md-6 search-text">
                 в радиусе &nbsp;
                 <%= select_tag :distance, options_for_select(@distances, @distance || 50) %>
                 &nbsp; от &nbsp;
                 <%= text_field_tag :city, @city, placeholder: :город, id: 'searchTextField' %>
+              </div>
+              <div class="col-md-3">
+                <div class="col-md padd-0"><%= submit_tag("Искать", class: "groups-btn") %></div>
               </div>
             </div>
           <% end %>
