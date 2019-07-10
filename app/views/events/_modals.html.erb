@@ -1,0 +1,59 @@
+<% @events.each do |event| %>
+  <div class="modal events-popup" id="event<%= event.id %>" role="dialog" style="display: none;">
+    <div class="modal-dialog new-modal">
+      <div class="modal-content">
+        <div class="modal-header no-border">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-5">
+              <% if event.image.attached? %>
+                <img src=<%= url_for(event.image) %> alt="">
+              <% else %>
+                <img src='/images/city26.jpg' alt="">
+              <% end %>
+            </div>
+            <div class="col-md-7">
+              <!-- <h3>Events Schedule</h3>
+              <h4>sponsor club kim</h4> -->
+              <h5><%= event.title %></h5>
+              <p style="color:#000;"><%= "#{event.user.first_name} #{event.user.last_name}" %></p>
+              <p class="greytext"><%= event.description %></p>
+              <p><i class="fa fa-clock-o" aria-hidden="true"></i><%= event.date.strftime("%H:%M") %></p>
+              <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i><%= event.date.strftime("%-d %b %Y") %></p>
+              <p class="text-uppercase"><i class="fa fa-map-marker" aria-hidden="true"></i><%= "#{event.location.city}, #{event.address}" %></p>
+              <% if user_signed_in? %>
+                <% if @participations.where(user_id: current_user.id, event_id: event.id).any? %>
+                  <p>You already joined this event</p>
+                <% elsif current_user.id != event.user.id %>
+                  <div class="row marg-top-10">
+                    <div class="col-md-6 text-center">
+                      <%= link_to new_participation_path(user_id: current_user.id, event_id: event.id) do %>
+                        <img src="/images/join.jpg" alt="">
+                      <% end %>
+                    </div>
+                    <div class="col-md-6">
+                      <a href="javascript: void(0)" class="cancel-btn" data-dismiss="modal">Cancel</a>
+                    </div>
+                  </div>
+                <% end %>
+              <% else %>
+                <div class="row marg-top-10">
+                  <div class="col-md-6 text-center">
+                    <%= link_to new_user_session_path do %>
+                      <img src="/images/join.jpg" alt="">
+                    <% end %>
+                  </div>
+                  <div class="col-md-6">
+                    <a href="javascript: void(0)" class="cancel-btn" data-dismiss="modal">Cancel</a>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

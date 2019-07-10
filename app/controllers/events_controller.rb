@@ -33,6 +33,10 @@ class EventsController < ApplicationController
       @events = temp.where(location_id: location_ids)
 
       @participations = Participation.all
+
+      respond_to do |format|
+        format.js { render 'events/update_view' }
+      end
     end
 
     @distances = {
@@ -44,8 +48,6 @@ class EventsController < ApplicationController
       '150 КМ' => 150,
       'БОЛЕЕ 150 КМ' => 20000
     }
-
-    @foo = params
   end
 
   # GET /events/1

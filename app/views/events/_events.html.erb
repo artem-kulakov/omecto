@@ -1,0 +1,24 @@
+      <ul class="row categories-all">
+        <% @events.each do |event| %>
+          <li class="col-lg-4 col-md-4 col-sm-6">
+            <div class="cat-wrap">
+              <a href="" data-toggle="modal" data-target="#event<%= event.id %>">
+                <% if event.image.attached? %>
+                  <img src=<%= url_for(event.image) %> alt="">
+                <% else %>
+                  <img src='/images/city26.jpg' alt="">
+                <% end %>
+                <a class="zoom1" href="">
+                  <img src="/images/zoom.png" alt="">
+                </a>
+                <div class="hover1">
+                  <a href="" data-toggle="modal" data-target="#event<%= event.id %>">
+                    <%= event.title %>
+                  </a>
+                  <%= event.users.length + 1 %> members
+                </div>
+              </a>
+            </div>
+          </li>
+        <% end %>
+      </ul>
