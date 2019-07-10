@@ -19,9 +19,9 @@
               </div>
               <div class="col-md-6 search-text">
                 в радиусе &nbsp;
-                <%= select_tag :distance, options_for_select(@distances, @distance || 50) %>
+                <%= select_tag :distance, options_for_select(@distances, @distance || 50), class: 'distance-field' %>
                 &nbsp; от &nbsp;
-                <%= text_field_tag :city, @city, placeholder: :город, id: 'searchTextField' %>
+                <%= text_field_tag :city, @city, placeholder: :город, id: 'searchTextField', class: 'city-field' %>
               </div>
               <div class="col-md-3">
                 <div class="col-md padd-0"><%= submit_tag("Искать", class: "groups-btn") %></div>

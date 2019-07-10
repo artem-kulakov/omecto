@@ -41,7 +41,7 @@ class EventsController < ApplicationController
       '50 КМ' => 50,
       '100 КМ' => 100,
       '150 КМ' => 150,
-      'БОЛЕЕ 150 КМ' => 20000
+      '> 150 КМ' => 20000
     }
   end
 
