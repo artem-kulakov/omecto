@@ -252,7 +252,7 @@ background: -webkit-linear-gradient(top,  #eb3a5d 0%,#bb1e3e 40%,#8f0722 100%); 
 background: linear-gradient(to bottom,  #eb3a5d 0%,#bb1e3e 40%,#8f0722 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb3a5d', endColorstr='#8f0722',GradientType=0 ); /* IE6-9 */}
 .joinbtn:hover{color:#fff;}
-.search-sec{width:100%; float:left; background:#fff; height:93px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); padding:7px 11px; margin-top:-46px; z-index:9999; position:relative;}
+.search-sec{width:100%; float:left; background:#fff; height:93px; box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4); padding:7px 11px; margin-top:-46px; z-index:1; position:relative;}
 .search-sec1{width:100%; float:left; background:#fff; height:76px; border:#000 solid 1px; padding:14px 20px;}
 .search-div{background:#e6e6e6; width:100%; float:left;}
 .search-div input[type=text]{width:90%; float:left; background:none; border:none; padding-left:10px; line-height:46px; font-size:16px; color:#8f8f8f; font-weight:400; font-style:italic;}
