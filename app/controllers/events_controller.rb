@@ -9,11 +9,14 @@ class EventsController < ApplicationController
       ip = "83.220.236.196" if ip == "::1"
       location = Geocoder.search(ip).first
       city = location.city + ', ' + location.country
+      
+      @participations = Participation.all
 
     if params['distance'].nil?
-      @events = Event.all
-      @participations = Participation.all
+      @word = ""
+      @distance = 50
       @city = city
+      @events = select_events_for @word, @distance, @city
     else
       @word = params[:word]
       @distance = params[:distance]
@@ -24,15 +27,7 @@ class EventsController < ApplicationController
         @city = params[:city]
       end
 
-      location_ids = []
-      Location.near(@city, @distance, units: :km).each do |location|
-        location_ids << location.id
-      end
-
-      temp = Event.where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{@word.downcase}%", "%#{@word.downcase}%")
-      @events = temp.where(location_id: location_ids)
-
-      @participations = Participation.all
+      @events = select_events_for @word, @distance, @city
 
       respond_to do |format|
         format.js { render 'events/update_view' }
@@ -48,6 +43,17 @@ class EventsController < ApplicationController
       '150 КМ' => 150,
       'БОЛЕЕ 150 КМ' => 20000
     }
+  end
+
+  def select_events_for word, distance, city
+    location_ids = []
+    
+    Location.near(city, distance, units: :km).each do |location|
+      location_ids << location.id
+    end
+
+    temp = Event.where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{word.downcase}%", "%#{word.downcase}%")
+    temp.where(location_id: location_ids)
   end
 
   # GET /events/1
