@@ -2,7 +2,10 @@
   <section class="inner-banner-text">
     <h1><strong>Omecto</strong> Connects People Locally</h1>
     <p>Omecto is a platform for creating new connections anytime, anywhere in a formal or informal way. People use Omecto to host & join events,reach targeted audiences, meet new people, find support, solve a problem and pursue their passions, together.</p>
-    <a href="#" class="joinbtn">Join Omecto</a> </section>
+    <% unless user_signed_in? %>
+      <%= link_to 'Join omecto', new_user_registration_path, class: 'joinbtn' %>
+    <% end %>
+  </section>
 </section>
 <section class="container">
   <section class="search-sec">
