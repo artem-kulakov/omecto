@@ -3,7 +3,11 @@
     <div class="profile-image-sec">
       <div class="profile-div">
         <div class="col-md-5 float-left marg-0">
-          <img src="/images/profile-img.jpg" alt="">
+          <% if @user.image.attached? %>
+            <img src=<%= url_for(@user.image) %> alt="">
+          <% else %>
+            <img src='/images/user.png' alt="">
+          <% end %>
         </div>
         <div class="col-md-7 float-left marg-0">
           <div class="profile-div1">
