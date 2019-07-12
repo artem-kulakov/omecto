@@ -24,7 +24,7 @@
                 в радиусе &nbsp;
                 <%= select_tag :distance, options_for_select(@distances, @distance || 50), class: 'distance-field' %>
                 &nbsp; от &nbsp;
-                <%= text_field_tag :city, @city, placeholder: :город, id: 'searchTextField', class: 'city-field' %>
+                <%= text_field_tag :city, @city, placeholder: "Введите город", id: 'searchTextField', class: 'city-field' %>
               </div>
               <div class="col-md-3">
                 <div class="col-md padd-0"><%= submit_tag("Искать", class: "groups-btn") %></div>
@@ -125,6 +125,7 @@
 </section>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB70MmakmCuRJl08Njf9z0Itv-nYf-DOPY&libraries=places"></script>
 <script>
+  // City autocomplete
   function initialize() {
     var options = {
       types: ['(cities)'],
@@ -135,4 +136,9 @@
   }
 
   google.maps.event.addDomListener(window, 'load', initialize);
+
+  // City field
+  $('.city-field').click(function() {
+    $(this).val('');
+  });
 </script>
