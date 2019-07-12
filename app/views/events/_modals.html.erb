@@ -22,7 +22,8 @@
               <p class="greytext"><%= event.description %></p>
               <p><i class="fa fa-clock-o" aria-hidden="true"></i><%= event.date.strftime("%H:%M") %></p>
               <p><i class="fa fa-calendar-check-o" aria-hidden="true"></i><%= event.date.strftime("%-d %b %Y") %></p>
-              <p class="text-uppercase"><i class="fa fa-map-marker" aria-hidden="true"></i><%= "#{event.location.city}, #{event.address}" %></p>
+              <p class="text-uppercase mb-0"><i class="fa fa-map-marker" aria-hidden="true"></i><%= event.location.city %></p>
+              <p class="text-uppercase"><i class="fa fa-map-marker fa-invisible" aria-hidden="true"></i><%= event.address %></p>
               <div class="join-event-<%= event.id %>">
                 <% if user_signed_in? %>
                   <% if @participations.where(user_id: current_user.id, event_id: event.id).any? %>
