@@ -39,7 +39,9 @@
             </div>
 
             <%= form.fields_for :event_categories do |addresses_form| %>
-                <%= addresses_form.check_box :category_id, {}, 81, false %>
+              <% for i in 80..85 %>
+                <%= check_box_tag 'event[event_categories_attributes][][category_id]', i %>
+              <% end %>
             <% end %>
 
             <%= form.text_field :user_id, type: :hidden, value: current_user.id %>
