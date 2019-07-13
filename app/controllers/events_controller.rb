@@ -65,6 +65,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @event.build_location
+    @event.event_categories.build
     @categories = Category.all
   end
 
@@ -120,6 +121,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:title, :categories, :description, :address, :date, :user_id, :image, :location_id, location_attributes: [:city])
+      params.require(:event).permit(:title, :categories, :description, :address, :date, :user_id, :image, :location_id, location_attributes: [:city], event_categories_attributes: [:id, :category_id])
     end
 end

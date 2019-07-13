@@ -30,7 +30,7 @@
                       <div class="col-md-2 col-3 icon-img"><img src=<%= category.icon %> alt=""></div>
                       <div class="col-md-8 col-7"><%= category.title %></div>
                       <div class="col-md-2 col-2">
-                        <%= form.check_box :foo, class: "category-box", category_id: category.cat_id %>
+                        <%#= form.check_box :foo, class: "category-box", category_id: category.cat_id %>
                       </div>
                     </div>
                   </div>
@@ -38,7 +38,10 @@
               </div>
             </div>
 
-            <%= form.text_field :categories, type: :hidden, class: :categories %>
+            <%= form.fields_for :event_categories do |addresses_form| %>
+                <%= addresses_form.text_field :category_id %>
+            <% end %>
+
             <%= form.text_field :user_id, type: :hidden, value: current_user.id %>
 
             <%= form.text_area :description, class: "form-control", placeholder: "Tell us more about your social" %>
