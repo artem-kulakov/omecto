@@ -908,7 +908,8 @@ a.fb-button i.fa{font-size:30px; margin-right:15px; display:inline-block;}
 .modal.events-popup .modal-dialog{max-width:900px !important;}
 .modal.events-popup h3{font-family:'Aksana'; font-size:30px; color:#ee3b5f; font-weight:bold; margin:10px 0 15px;}
 .modal.events-popup h4{font-size:14px; text-transform:uppercase; color:#6f6f6f;}
-.modal.events-popup h5{font-size:16px; text-transform:uppercase; color:#40a2c7; padding-bottom:15px; margin-bottom:15px; border-bottom:#d6d6d6 solid 1px; display:block; width:100%;}
+.modal.events-popup h5{font-size:16px; text-transform:uppercase; color:#40a2c7; display:block; width:100%;}
+.modal.events-popup p.categories{color:#ee3b5f; border-bottom:#d6d6d6 solid 1px; margin-bottom:15px; padding-bottom:15px;}
 .modal.events-popup p{font-size:15px; color:#000; margin-bottom:15px;}
 .modal.events-popup p.greytext{font-size:14px; color:#707070;}
 .modal.events-popup i.fa{font-size:25px; color:#4aa7ca; float:left; margin-right:15px;}
