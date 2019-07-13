@@ -24,22 +24,22 @@
             <p class="red">Choose at least one category</p>
             <div class="icons-sec">
               <div class="row">
-                <% @categories.each_with_index do |category, i| %>
-                  <div class="col-sm-6 border">
+                <%# @categories.each_with_index do |category, i| %>
+<!--                   <div class="col-sm-6 border">
                     <div class="row">
-                      <div class="col-md-2 col-3 icon-img"><img src=<%= category.icon %> alt=""></div>
-                      <div class="col-md-8 col-7"><%= category.title %></div>
+                      <div class="col-md-2 col-3 icon-img"><img src=<%#= category.icon %> alt=""></div>
+                      <div class="col-md-8 col-7"><%#= category.title %></div>
                       <div class="col-md-2 col-2">
                         <%#= form.check_box :foo, class: "category-box", category_id: category.cat_id %>
                       </div>
                     </div>
                   </div>
-                <% end %>
+ -->                <%# end %>
               </div>
             </div>
 
             <%= form.fields_for :event_categories do |addresses_form| %>
-                <%= addresses_form.text_field :category_id %>
+                <%= addresses_form.check_box :category_id, {}, 81, false %>
             <% end %>
 
             <%= form.text_field :user_id, type: :hidden, value: current_user.id %>

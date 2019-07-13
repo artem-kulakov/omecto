@@ -65,8 +65,10 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @event.build_location
-    @event.event_categories.build
+
     @categories = Category.all
+    n = @categories.length
+    n.times { @event.event_categories.build }
   end
 
   # GET /events/1/edit
