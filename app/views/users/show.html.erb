@@ -12,20 +12,20 @@
         <div class="col-md-7 float-left marg-0">
           <div class="profile-div1">
             <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
-            <h4>CEO</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna aliqua uta enim ad minim ven iam quis nostrud. Lorem ipsum dolor sit amet consectetur adipisicing elit sedc dnmo eiusmod tempor incididunt ut labore et dolore magna aliqua uta enim ad minim ven iam quis nostrud.</p>
-            <div class="profile-share-div">
+            <h4><%= @user.title %></h4>
+            <p><%= @user.description %></p>
+            <!-- <div class="profile-share-div">
               <div class="row">
                 <div class="col-md-6">
-                  <!-- <i class="fa fa-comment-o" aria-hidden="true"></i>
-                  24 -->
+                  <i class="fa fa-comment-o" aria-hidden="true"></i>
+                  24
                 </div>
                 <div class="col-md-6 text-right">Share <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a> <a href="https://youtube.com" target="_blank" title="Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a></div>
               </div>
             </div>
-            <p class="social-icons"><a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a> <a href="https://youtube.com" target="_blank" title="Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a></p>
+            <p class="social-icons"><a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a> <a href="https://youtube.com" target="_blank" title="Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a></p> -->
           </div>
-          <div class="profile-buttons">
+          <div class="profile-buttons mt-5">
             <div class="col-md-6 marg-0 float-left"><a href="#" class="black-btn"><%= @user.participations.length %> Joined</a></div>
             <div class="col-md-6 marg-0 float-left"><a href="#" class="pink-btn">Connect</a></div>
           </div>
