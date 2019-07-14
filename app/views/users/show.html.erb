@@ -27,7 +27,13 @@
           </div>
           <div class="profile-buttons mt-5">
             <div class="col-md-6 marg-0 float-left"><a href="#" class="black-btn"><%= @user.participations.length %> Joined</a></div>
-            <div class="col-md-6 marg-0 float-left"><a href="#" class="pink-btn">Connect</a></div>
+            <div class="col-md-6 marg-0 float-left connect-button">
+              <% if @user.id == current_user.id || Connection.where('(sender_id=? AND recipient_id=?) OR (sender_id=? AND recipient_id=?)', current_user.id, @user.id, @user.id, current_user.id).any? %>
+                <p class='pink-btn'>Connected</p>
+              <% else %>
+                <%= link_to 'Connect', new_connection_path(sender_id: current_user.id, recipient_id: @user.id), remote: true, class: 'pink-btn' %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

@@ -941,6 +941,7 @@ a.maillink{color:#ee3b5f;}
 .social-icons a{color:#fff; display:inline-block; border-radius:50%; text-align:center; border:#fff solid 1px; margin:0 10px; width:40px; height:40px; line-height:40px; font-size:20px;}
 a.black-btn{display:inline-block; line-height:78px; color:#fff; text-transform:uppercase; background:#0f191b; text-align:center; font-size:17px; width:100%;}
 a.pink-btn{display:inline-block; line-height:78px; color:#fff; text-transform:uppercase; background:url(../images/pinkbg.jpg) top left repeat-x; text-align:center; font-size:17px; width:100%;}
+p.pink-btn{display:inline-block; line-height:78px; color:#fff; text-transform:uppercase; background:url(../images/pinkbg.jpg) top left repeat-x; text-align:center; font-size:17px; width:100%;}
 .freinds-sec h3{font-weight:700; font-size:25px; margin-top:50px;}
 .section-omc-events{padding-top:35px;}
 .event-column{ background-repeat:no-repeat; background-position:top center; margin-left:0; background-size:cover; margin-bottom:50px;}

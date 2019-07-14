@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :events
   resources :categories, :only => [:show]
   resources :participations, :only => [:new]
+  resources :connections, :only => [:new]
 
   resources :conversations do
     resources :messages
