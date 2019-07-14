@@ -10,4 +10,17 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def full_name
+    first_name + ' ' + last_name
+  end
+
+  def image_url
+    if self.image.attached?
+      url_for(self.image)
+    else
+      '/images/user.png'
+    end
+  end
+
 end

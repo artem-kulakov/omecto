@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def show
+    senders = Connection.where(recipient_id: @user.id).map { |connection| connection.sender_id }
+    recipients = Connection.where(sender_id: @user.id).map { |connection| connection.recipient_id }
+    friends_ids = senders + recipients
+    @friends = User.find(friends_ids)
   end
 
   private

@@ -3,15 +3,11 @@
     <div class="profile-image-sec">
       <div class="profile-div">
         <div class="col-md-5 float-left marg-0">
-          <% if @user.image.attached? %>
-            <img src=<%= url_for(@user.image) %> alt="">
-          <% else %>
-            <img src='/images/user.png' alt="">
-          <% end %>
+            <img src=<%= @user.image_url %> alt="">
         </div>
         <div class="col-md-7 float-left marg-0">
           <div class="profile-div1">
-            <h3><%= "#{@user.first_name} #{@user.last_name}" %></h3>
+            <h3><%= @user.full_name %></h3>
             <h4><%= @user.title %></h4>
             <p><%= @user.description %></p>
             <!-- <div class="profile-share-div">
@@ -40,23 +36,25 @@
     </div>
     <section class="freinds-sec">
       <section class="row effects">
-        <div class="col-md-3">
-          <div class="demo">
-            <figure class="imghvr-fade"><img src="/images/member1.jpg" alt="">
-              <figcaption>
-                <div class="row">
-                  <div class="col-md-4 text-center"><a href="https://instagram.com" target="_blank" title="Instagram"><img src="/images/instagram1.png" alt="Instagram"></a></div>
-                  <div class="col-md-4 text-center"><a href="https://youtube.com" target="_blank" title="Youtube"><img src="/images/youtube.png" alt="Youtube"></a></div>
-                  <div class="col-md-4 text-center"><a href="#" title="Message"><img src="/images/message.png" alt="Message"></a></div>
-                </div>
-              </figcaption>
-            </figure>
-            <div class="member-name">
-              <h4>Gordon Anderson</h4>
-              <h5>Creative Director</h5>
+        <% @friends.each do |friend| %>
+          <div class="col-md-3">
+            <div class="demo">
+              <figure class="imghvr-fade"><img src=<%= friend.image_url %> alt="">
+                <figcaption>
+                  <div class="row">
+                    <div class="col-md-4 text-center"><a href="https://instagram.com" target="_blank" title="Instagram"><img src="/images/instagram1.png" alt="Instagram"></a></div>
+                    <div class="col-md-4 text-center"><a href="https://youtube.com" target="_blank" title="Youtube"><img src="/images/youtube.png" alt="Youtube"></a></div>
+                    <div class="col-md-4 text-center"><a href="#" title="Message"><img src="/images/message.png" alt="Message"></a></div>
+                  </div>
+                </figcaption>
+              </figure>
+              <div class="member-name">
+                <h4><%= friend.full_name %></h4>
+                <h5><%= friend.title %></h5>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </section>
     </section>
   </div>
