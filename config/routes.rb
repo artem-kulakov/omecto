@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :blogs
   resources :events
-  resources :categories, :only => [:show]
-  resources :participations, :only => [:new]
-  resources :connections, :only => [:new]
+  resources :categories, only: [:show]
+  resources :participations, only: [:new]
+  resources :connections, only: [:new]
 
   resources :conversations do
     resources :messages
   end
 
   devise_for :users
-  resources :users, :only => [:show]
+  resources :users, only: [:show]
 
   get 'welcome/index'
   get 'about', to: 'welcome#about'

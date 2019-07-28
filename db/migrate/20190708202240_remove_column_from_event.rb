@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RemoveColumnFromEvent < ActiveRecord::Migration[5.2]
   def change
     remove_column :events, :city, :string

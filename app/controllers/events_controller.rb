@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: [:index]
 
   # GET /events
   # GET /events.json
   def index
-      ip = request.remote_ip
-      ip = "83.220.236.196" if ip == "::1"
-      location = Geocoder.search(ip).first
-      city = location.city + ', ' + location.country
-      
-      @participations = Participation.all
+    ip = request.remote_ip
+    ip = '83.220.236.196' if ip == '::1'
+    location = Geocoder.search(ip).first
+    city = location.city + ', ' + location.country
+
+    @participations = Participation.all
 
     if params['distance'].nil?
-      @word = ""
+      @word = ''
       @distance = 50
       @city = city
       @events = select_events_for @word, @distance, @city
@@ -21,11 +23,11 @@ class EventsController < ApplicationController
       @word = params[:word]
       @distance = params[:distance]
 
-      if params[:city] == ""
-        @city = city
-      else
-        @city = params[:city]
-      end
+      @city = if params[:city] == ''
+                city
+              else
+                params[:city]
+              end
 
       @events = select_events_for @word, @distance, @city
 
@@ -41,25 +43,24 @@ class EventsController < ApplicationController
       '50 КМ' => 50,
       '100 КМ' => 100,
       '150 КМ' => 150,
-      '> 150 КМ' => 20000
+      '> 150 КМ' => 20_000
     }
   end
 
-  def select_events_for word, distance, city
+  def select_events_for(word, distance, city)
     location_ids = []
-    
+
     Location.near(city, distance, units: :km).each do |location|
       location_ids << location.id
     end
 
-    temp = Event.where("lower(title) LIKE ? OR lower(description) LIKE ?", "%#{word.downcase}%", "%#{word.downcase}%")
+    temp = Event.where('lower(title) LIKE ? OR lower(description) LIKE ?', "%#{word.downcase}%", "%#{word.downcase}%")
     temp.where(location_id: location_ids)
   end
 
   # GET /events/1
   # GET /events/1.json
-  def show
-  end
+  def show; end
 
   # GET /events/new
   def new
@@ -70,8 +71,7 @@ class EventsController < ApplicationController
   end
 
   # GET /events/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /events
   # POST /events.json
@@ -114,13 +114,14 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:title, :categories, :description, :address, :date, :user_id, :image, :location_id, location_attributes: [:city], event_categories_attributes: [:id, :category_id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:title, :categories, :description, :address, :date, :user_id, :image, :location_id, location_attributes: [:city], event_categories_attributes: %i[id category_id])
+  end
 end

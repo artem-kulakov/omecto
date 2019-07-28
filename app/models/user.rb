@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
-	has_many :events
+  has_many :events
   has_many :participations
   has_many :events, through: :participations
-	has_many :blogs
+  has_many :blogs
 
   has_one_attached :image
 
@@ -16,11 +18,10 @@ class User < ApplicationRecord
   end
 
   def image_url
-    if self.image.attached?
-      url_for(self.image)
+    if image.attached?
+      url_for(image)
     else
       '/images/user.png'
     end
   end
-
 end
