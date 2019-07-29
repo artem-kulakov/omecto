@@ -14,11 +14,13 @@ class EventsController < ApplicationController
 
     @participations = Participation.all
 
+    category = params[:category]
+
     if params['distance'].nil?
       @word = ''
       @distance = 50
       @city = city
-      @events = select_events_for @word, @distance, @city
+      @events = select_events_for @word, @distance, @city, category
     else
       @word = params[:word]
       @distance = params[:distance]
@@ -29,7 +31,7 @@ class EventsController < ApplicationController
                 params[:city]
               end
 
-      @events = select_events_for @word, @distance, @city
+      @events = select_events_for @word, @distance, @city, category
 
       respond_to do |format|
         format.js { render 'events/update_view' }
@@ -47,7 +49,7 @@ class EventsController < ApplicationController
     }
   end
 
-  def select_events_for(word, distance, city)
+  def select_events_for(word, distance, city, category)
     location_ids = []
 
     Location.near(city, distance, units: :km).each do |location|
@@ -55,6 +57,16 @@ class EventsController < ApplicationController
     end
 
     temp = Event.where('lower(title) LIKE ? OR lower(description) LIKE ?', "%#{word.downcase}%", "%#{word.downcase}%")
+
+    if category
+      events_ids = []
+      event_categories = EventCategory.where(category_id: category).each { |item| events_ids << item.event_id }
+
+      if event_categories.any?
+        temp = temp.where(id: events_ids)
+      end
+    end
+
     temp.where(location_id: location_ids)
   end
 

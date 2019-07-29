@@ -40,7 +40,7 @@
             <div class="cat-wrap">
               <img src=<%= category.image %> alt="">
               <div class="hover">
-                <%= link_to category.title, category %>
+                <%= link_to category.title, events_path(category: category.id) %>
               </div>
             </div>
           </li>
