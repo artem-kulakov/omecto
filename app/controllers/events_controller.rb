@@ -18,7 +18,7 @@ class EventsController < ApplicationController
 
     if params['distance'].nil?
       @word = ''
-      @distance = 50
+      @distance = 20_000
       @city = city
       @events = select_events_for @word, @distance, @city, category
     else
